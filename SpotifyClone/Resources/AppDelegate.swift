@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  SpotifyClone
-//
-//  Created by Анатолий Ге on 27.07.2023.
-//
-
 import UIKit
 
 @main
@@ -16,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         if AuthManager.shared.isSignedIn {
+            AuthManager.shared.refreshIfNeeded(completion: nil)
             window.rootViewController = TabBarViewController()
         } else {
             let navVC = UINavigationController(rootViewController: WelcomeViewController())
